@@ -22,22 +22,12 @@ export default function CategoriesPage() {
     { category: "Galeri", imageId: "1500051638674-ff996a0ec29e" },
     { category: "Video", imageId: "1524253482453-3fed8d2fe12b" },
   ];
-  const imgUrl = dataSource.map((item) => {
-    return imageBaseUrl + item + imageParameters;
-  });
-  console.log(imgUrl);
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <ul style={{ display: "flex", flexWrap: "wrap", maxWidth: "400px" }}>
         {dataSource.map((item) => (
           <li>
-            <Link
-              onClick={() =>
-                history.push("/categories", {
-                  item: item,
-                })
-              }
-            >
+            <Link to={"/" + item.category}>
               <div className="cat-img-box">
                 <h4 className="category-title">{item.category}</h4>
                 <img
