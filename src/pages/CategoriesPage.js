@@ -26,8 +26,8 @@ export default function CategoriesPage() {
     <div style={{ display: "flex", justifyContent: "center" }}>
       <ul style={{ display: "flex", flexWrap: "wrap", maxWidth: "400px" }}>
         {dataSource.map((item) => (
-          <li>
-            <Link to={"/" + item.category}>
+          <li key={item.category}>
+            <Link to={"/category/" + item.category}>
               <div className="cat-img-box">
                 <h4 className="category-title">{item.category}</h4>
                 <img
@@ -38,9 +38,6 @@ export default function CategoriesPage() {
             </Link>
           </li>
         ))}
-        <li>
-          <Link></Link>
-        </li>
       </ul>
     </div>
   );

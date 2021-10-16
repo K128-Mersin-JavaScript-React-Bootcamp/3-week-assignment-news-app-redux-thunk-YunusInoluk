@@ -7,11 +7,15 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        <Route path="/category/:id">
+          <NewsListPage />
+        </Route>
+        <Route path="/details/:id">
+          <NewsDetails />
+        </Route>
         <Route exact path="/">
           <CategoriesPage />
         </Route>
-        <Route path="/:category" children={<NewsListPage />} />
-        <Route path="/:details" component={<NewsDetails />} />
       </Switch>
     </div>
   );

@@ -6,26 +6,25 @@ import { getNews } from "../actions";
 import { useHistory } from "react-router-dom";
 
 const NewsListPage = (props) => {
-  let { category } = useParams();
-  const { history } = useHistory();
+  let params = useParams();
 
   useEffect(() => {
-    props.getNews(category);
+    props.getNews(params.id);
   }, []);
   return (
     <div>
       {props.news.status === "ok" && (
         <ul>
           {props.news.articles.map((item) => (
-            <li>
+            <li key={item.urlToImage}>
               <Link
                 style={{ display: "flex" }}
-                to="/news-details"
-                onClick={() => {
-                  history.push("/", {
-                    newsDetail: item,
-                  });
-                }}
+                to={`/details/${item.urlToImage}`}
+                // onClick={() => {
+                //   history.push("/", {
+                //     newsDetail: item,
+                //   });
+                // }}
               >
                 <div>
                   <img src={item.urlToImage} alt={item.title} />
